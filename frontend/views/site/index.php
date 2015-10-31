@@ -4,7 +4,15 @@
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
+<div class="site-index" ng-app="shop">
+
+    <div ng-controller="products">
+        <div ng-repeat="product in products">
+            <div class="col-lg-4">{{product.name}}</div>
+            <div class="col-lg-4">{{product.description}}</div>
+            <div class="col-lg-4">{{product.number}}</div>
+        </div>
+    </div>
 
     <div class="jumbotron">
         <h1>Congratulations!</h1>

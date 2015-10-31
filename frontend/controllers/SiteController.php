@@ -13,6 +13,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use backend\models\Products;
+
 /**
  * Site controller
  */
@@ -209,5 +211,25 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionProductsList()
+    {
+        header('Content-type: application/json');
+        $products = Products::find()->all();
+        // echo '<pre>';
+        // var_dump($products);
+        // echo '</pre>';
+
+        $productsList = [];
+        foreach ($products as $product) {
+            $productsList[] = [
+                'name' => $product->name,
+                'description' => $product->description,
+                'number' => $product->number,
+            ];
+        }
+
+        echo json_encode($productsList);
     }
 }
