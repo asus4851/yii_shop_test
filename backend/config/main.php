@@ -34,8 +34,6 @@ return [
         ],
         'urlManager'=>[
             'scriptUrl'=>'/backend/index.php',
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
         ],
     ],
     'params' => $params,

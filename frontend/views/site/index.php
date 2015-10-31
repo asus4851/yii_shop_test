@@ -49,5 +49,7 @@ $this->title = 'My Yii Application';
             </div>
         </div>
 
+        <?php echo $this->render('/site/about'); ?>
+
     </div>
 </div>

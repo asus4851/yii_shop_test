@@ -33,8 +33,6 @@ return [
         ],
         'urlManager'=>[
             'scriptUrl'=>'/index.php',
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
         ],
     ],
     'params' => $params,
