@@ -217,19 +217,42 @@ class SiteController extends Controller
     {
         header('Content-type: application/json');
         $products = Products::find()->all();
-        // echo '<pre>';
-        // var_dump($products);
-        // echo '</pre>';
 
         $productsList = [];
         foreach ($products as $product) {
             $productsList[] = [
+                'id' => $product->id,
                 'name' => $product->name,
                 'description' => $product->description,
                 'number' => $product->number,
+                'url' => Yii::$app->urlManager->createUrl(['site/product-view', 'id' => $product->id]),
             ];
         }
 
         echo json_encode($productsList);
+    }
+
+    public function actionProductView($id)
+    {
+        $product = Products::find($id)->one();
+
+        return $this->render('product', [
+            'product' => $product,
+        ]);
+    }
+
+    public function actionProductItem($id)
+    {
+        header('Content-type: application/json');
+        $product = Products::find($id)->one();
+
+        $productItem = [
+            'id' => $product->id,
+            'name' => $product->name,
+            'description' => $product->description,
+            'number' => $product->number,
+        ];
+
+        echo json_encode($productItem);
     }
 }

@@ -8,7 +8,7 @@ $this->title = 'My Yii Application';
 
     <div ng-controller="products">
         <div ng-repeat="product in products">
-            <div class="col-lg-4">{{product.name}}</div>
+            <div class="col-lg-4"><a href="{{product.url}}">{{product.name}}</a></div>
             <div class="col-lg-4">{{product.description}}</div>
             <div class="col-lg-4">{{product.number}}</div>
         </div>
